@@ -1,10 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
-    <style name="Theme.Quizizz" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryDark">@color/purple_700</item>
-        <item name="colorAccent">@color/teal_200</item>
-        <!-- Customize your theme here. -->
-    </style>
+    <color name="color_control_light">#2EFFFFFF</color> <!-- 18% white -->
+    <color name="color_surface_secondary">#2a2b2e</color>
+
+    <!-- Scrim colors -->
+    <color name="system_ui_scrim_light">#2EFFFFFF</color> <!-- 18% white -->
+    <color name="system_ui_scrim_black">#B3000000</color> <!-- 70% black -->
+
+    <!-- In dark mode without light status bar we can use transparent -->
+    <color name="status_bar_scrim">@color/transparent</color>
+
+    <color name="primaryColor">#b39ddb</color>
+    <color name="primaryLightColor">#e6ceff</color>
+    <color name="primaryDarkColor">#836fa9</color>
+
+    <color name="secondaryColor">#cde3a3</color>
+    <color name="secondaryLightColor">#cde3a3</color>
+    <color name="secondaryDarkColor">#cde3a3</color>
+
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#000000</color>
+
+    <color name="colorWrong">#CF6679</color>
+    <color name="colorCorrect">#c5db9d</color>
+
+    <color name="colorBackground">#121212</color>
+    <color name="colorOnBackground">#ffffff</color>
+
+    <color name="list_divider">#1fffffff</color>
+
+    <item name="chip_bg_alpha_checked" format="float" type="dimen">0.27</item>
 </resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common dimensions -->
+    <dimen name="margin_tiny">4dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="spacing_normal">8dp</dimen>
+    <dimen name="spacing_micro">4dp</dimen>
+
+    <dimen name="text_size_h1">22sp</dimen>
+    <dimen name="text_size_h2">20sp</dimen>
+    <dimen name="text_size_h3">18sp</dimen>
+
+    <item name="match_parent" format="integer" type="dimen">-1</item>
+    <item name="wrap_content" format="integer" type="dimen">-2</item>
+    <!--  Button -->
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="corner_size_normal">30dp</dimen>
+
+    <dimen name="a11y_min_touch_target">48dp</dimen>
+
+    <dimen name="bottom_sheet_elevation">8dp</dimen>
+    <dimen name="bottom_sheet_corner_radius">16dp</dimen>
+    <dimen name="session_keyline">64dp</dimen>
+
+    <!-- Navigation -->
+    <dimen name="nav_drawer_width">@dimen/match_parent</dimen>
+    <dimen name="nav_account_image_size">32dp</dimen>
+    <dimen name="nav_header_logo_size">36dp</dimen>
+    <dimen name="nav_item_horizontal_padding">24dp</dimen>
+
+    <!-- Dialogs -->
+    <dimen name="dialog_corner_radius">8dp</dimen>
+    <dimen name="dialogPreferredPadding">24dp</dimen>
+    <dimen name="dialogPreferredPaddingLarge">36dp</dimen> <!-- dialogPreferredPadding + 12dp -->
+</resources>

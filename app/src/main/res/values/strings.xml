@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Quizizz</string>
+
+    <string name="sign_in">Sign In</string>
+    <string name="lady_with_paper">Lady with paper</string>
+    <string name="welcome_to_quizado">Welcome to Quizizz, \n Please select the Sign In button to get started.</string>
+    <string name="logged_in">Logged in…</string>
 </resources>

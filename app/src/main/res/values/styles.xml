@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Widget.Quizado.Button" parent="@style/Widget.MaterialComponents.Button">
+        <item name="shapeAppearance">@style/RoundedShapeAppearance</item>
+        <item name="android:padding">@dimen/padding_normal</item>
+    </style>
+
+    <style name="RoundedShapeAppearance">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSize">@dimen/corner_size_normal</item>
+    </style>
+
+    <!-- Text Appearance-->
+    <!-- List item primary text, e.g. event titles, codelab titles -->
+    <style name="TextAppearance.Quizizz.ListPrimary" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="Widget.Quizado.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.Quizado.ToolbarTitle</item>
+        <item name="contentInsetStartWithNavigation">?sessionListKeyline</item>
+        <item name="popupTheme">@style/AppTheme.PopupTheme</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
+    <!-- Header-->
+    <style name="TextAppearance.Quizado.ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize" tools:ignore="SpUsage">20dp</item>
+    </style>
+
+    <style name="Widget.Quizado.NavigationView" parent="@style/Widget.MaterialComponents.NavigationView">
+        <item name="itemHorizontalPadding">@dimen/nav_item_horizontal_padding</item>
+    </style>
+
+    <!-- Dialog-->
+    <style name="AlertDialog.TitleText" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="AlertDialog.TitlePanel" parent="MaterialAlertDialog.MaterialComponents.Title.Panel">
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingTop">?attr/dialogPreferredPadding</item>
+    </style>
+
+    <style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/preview_window</item>
+    </style>
+</resources>
