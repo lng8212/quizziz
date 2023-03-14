@@ -1,20 +1,16 @@
-package com.longkd.quizizz
+package com.longkd.quizizz.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import com.longkd.quizizz.firebase.FirebaseUserLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Job
 import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     currentUser: FirebaseUserLiveData
 ) : ViewModel() {
-
-    private var viewModelJob = Job()
-
     enum class AuthenticationState {
         AUTHENTICATED, UNAUTHENTICATED, INVALID_AUTHENTICATION
     }
@@ -25,10 +21,5 @@ class LoginViewModel @Inject constructor(
         } else {
             AuthenticationState.UNAUTHENTICATED
         }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
     }
 }

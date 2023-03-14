@@ -1,40 +1,44 @@
 package com.longkd.quizizz.result
 
-import androidx.lifecycle.Observer
+import androidx.lifecycle.MutableLiveData
 
-open class Event<out T>(private val content: T) {
+/**
+ * A generic class that holds a value with its loading status.
+ * @param <T>
+ */
+sealed class Result<out R> {
 
-    var hasBeenHandled = false
-        private set // Allow external read but not write
+    data class Success<out T>(val data: T) : Result<T>()
+    data class Error(val exception: Exception) : Result<Nothing>()
+    object Loading : Result<Nothing>()
 
-    /**
-     * Returns the content and prevents its use again.
-     */
-    fun getContentIfNotHandled(): T? {
-        return if (hasBeenHandled) {
-            null
-        } else {
-            hasBeenHandled = true
-            content
+    override fun toString(): String {
+        return when (this) {
+            is Success<*> -> "Success[data=$data]"
+            is Error -> "Error[exception=$exception]"
+            Loading -> "Loading"
         }
     }
-
-    /**
-     * Returns the content, even if it's already been handled.
-     */
-    fun peekContent(): T = content
 }
 
 /**
- * An [Observer] for [Event]s, simplifying the pattern of checking if the [Event]'s content has
- * already been handled.
- *
- * [onEventUnhandledContent] is *only* called if the [Event]'s contents has not been handled.
+ * `true` if [Result] is of type [Success] & holds non-null [Success.data].
  */
-class EventObserver<T>(private val onEventUnhandledContent: (T) -> Unit) : Observer<Event<T>> {
-    override fun onChanged(event: Event<T>) {
-        event.getContentIfNotHandled()?.let { value ->
-            onEventUnhandledContent(value)
-        }
+val Result<*>.succeeded
+    get() = this is Result.Success && data != null
+
+fun <T> Result<T>.successOr(fallback: T): T {
+    return (this as? Result.Success<T>)?.data ?: fallback
+}
+
+val <T> Result<T>.data: T?
+    get() = (this as? Result.Success)?.data
+
+/**
+ * Updates value of [liveData] if [Result] is of type [Success]
+ */
+inline fun <reified T> Result<T>.updateOnSuccess(liveData: MutableLiveData<T>) {
+    if (this is Result.Success) {
+        liveData.value = data
     }
 }

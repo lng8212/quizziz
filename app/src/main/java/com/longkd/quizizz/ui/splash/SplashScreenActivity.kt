@@ -1,4 +1,4 @@
-package com.longkd.quizizz
+package com.longkd.quizizz.ui.splash
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.longkd.quizizz.MainActivity
+import com.longkd.quizizz.login.LoginActivity
 import com.longkd.quizizz.utils.checkAllMatched
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

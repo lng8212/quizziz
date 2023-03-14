@@ -1,4 +1,4 @@
-package com.longkd.quizizz
+package com.longkd.quizizz.login
 
 import android.app.Activity
 import android.content.Intent
@@ -10,6 +10,8 @@ import androidx.databinding.DataBindingUtil
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
+import com.longkd.quizizz.MainActivity
+import com.longkd.quizizz.R
 import com.longkd.quizizz.databinding.ActivityLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber

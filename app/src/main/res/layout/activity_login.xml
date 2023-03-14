@@ -6,13 +6,13 @@
 
     <data>
 
-        <import type="com.longkd.quizizz.LoginViewModel.AuthenticationState" />
+        <import type="com.longkd.quizizz.login.LoginViewModel.AuthenticationState" />
 
         <import type="android.view.View" />
 
         <variable
             name="viewModel"
-            type="com.longkd.quizizz.LoginViewModel" />
+            type="com.longkd.quizizz.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
