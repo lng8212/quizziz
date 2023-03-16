@@ -1,25 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Widget.Quizado.Button" parent="@style/Widget.MaterialComponents.Button">
-        <item name="shapeAppearance">@style/RoundedShapeAppearance</item>
-        <item name="android:padding">@dimen/padding_normal</item>
-    </style>
+    <style name="Widget.Quizado" parent="@android:style/Widget.Material" />
 
-    <style name="RoundedShapeAppearance">
-        <item name="cornerFamilyTopLeft">rounded</item>
-        <item name="cornerFamilyBottomLeft">rounded</item>
-        <item name="cornerFamilyTopRight">rounded</item>
-        <item name="cornerFamilyBottomRight">rounded</item>
-        <item name="cornerSize">@dimen/corner_size_normal</item>
-    </style>
-
-    <!-- Text Appearance-->
-    <!-- List item primary text, e.g. event titles, codelab titles -->
-    <style name="TextAppearance.Quizizz.ListPrimary" parent="TextAppearance.MaterialComponents.Body1">
+    <!-- Dialog-->
+    <style name="AlertDialog.TitleText" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
         <item name="android:fontFamily">@font/montserrat</item>
-        <item name="android:letterSpacing">0</item>
+        <item name="android:textSize">20sp</item>
         <item name="fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="AlertDialog.TitlePanel" parent="MaterialAlertDialog.MaterialComponents.Title.Panel">
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingTop">?attr/dialogPreferredPadding</item>
+    </style>
+
+    <style name="AlertDialog.BodyText" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+    </style>
+
+    <style name="AlertDialog.ButtonBar" parent="@style/Widget.AppCompat.ButtonBar.AlertDialog">
+        <item name="android:paddingBottom">@dimen/margin_small</item>
+        <item name="android:paddingTop">@dimen/margin_small</item>
+    </style>
+
+    <!-- Navigation -->
+    <style name="Widget.Quizado.NavigationBarContentFrameLayout" parent="android:Widget.Material">
+        <item name="navigationBarBorderColor">?attr/quizadoNavigationBarDividerColor</item>
+        <item name="navigationBarBorderSize">1dp</item>
+    </style>
+
+    <style name="Widget.Quizado.NavigationView" parent="@style/Widget.MaterialComponents.NavigationView">
+        <item name="itemHorizontalPadding">@dimen/nav_item_horizontal_padding</item>
     </style>
 
     <style name="Widget.Quizado.Toolbar" parent="Widget.MaterialComponents.Toolbar">
@@ -35,23 +48,74 @@
         <item name="android:textSize" tools:ignore="SpUsage">20dp</item>
     </style>
 
-    <style name="Widget.Quizado.NavigationView" parent="@style/Widget.MaterialComponents.NavigationView">
-        <item name="itemHorizontalPadding">@dimen/nav_item_horizontal_padding</item>
+    <!--RatingBar-->
+    <style name="Widget.Quizado.RatingBar" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="android:numStars">3</item>
     </style>
 
-    <!-- Dialog-->
-    <style name="AlertDialog.TitleText" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+    <!-- Filters -->
+    <!-- Easier to extend Chip.Choice because it includes some desired color effects. -->
+    <style name="Widget.Quizado.FilterChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textAppearance">@style/TextAppearance.Quizado.FilterChip.Selectable
+        </item>
+        <item name="chipBackgroundColor">@color/chip_bg</item>
+        <item name="chipIconVisible">true</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+    </style>
+
+    <!-- Filters -->
+    <style name="TextAppearance.Quizado.FilterChip.Selectable" parent="TextAppearance.MaterialComponents.Chip">
         <item name="android:fontFamily">@font/montserrat</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.Quizado.AppBar" parent="@style/Widget.Design.AppBarLayout">
+        <item name="android:background">?attr/colorSurface</item>
+        <item name="android:elevation">8dp</item>
+    </style>
+
+    <style name="Widget.Quizado.Button.Borderless" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="fontFamily">@font/merriweather</item>
+        <item name="android:textColor">@color/colorOnBackground</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Widget.Quizado.Button" parent="@style/Widget.MaterialComponents.Button">
+        <item name="shapeAppearance">@style/RoundedShapeAppearance</item>
+        <item name="android:padding">@dimen/padding_normal</item>
+    </style>
+
+    <style name="RoundedShapeAppearance">
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSize">@dimen/corner_size_normal</item>
+    </style>
+
+    <!-- Account dialogs -->
+    <style name="TextAppearance.Quizado.AccountDialog.Username" parent="@style/TextAppearance.Quizado.ListPrimary" />
+
+    <style name="Widget.Quizado.AccountDialog.ActionButton" parent="">
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:drawablePadding">@dimen/margin_normal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">?listPreferredItemHeightSmall</item>
+        <item name="android:paddingBottom">@dimen/spacing_normal</item>
+        <item name="android:paddingRight">?listPreferredItemPaddingEnd</item>
+        <item name="android:paddingStart">?listPreferredItemPaddingStart</item>
+        <item name="android:paddingTop">@dimen/spacing_normal</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Text Appearance-->
+    <!-- List item primary text, e.g. event titles, codelab titles -->
+    <style name="TextAppearance.Quizado.ListPrimary" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:letterSpacing">0</item>
         <item name="fontFamily">@font/montserrat</item>
     </style>
 
-    <style name="AlertDialog.TitlePanel" parent="MaterialAlertDialog.MaterialComponents.Title.Panel">
-        <item name="android:paddingBottom">16dp</item>
-        <item name="android:paddingTop">?attr/dialogPreferredPadding</item>
-    </style>
-
-    <style name="AppTheme.Launcher">
-        <item name="android:windowBackground">@drawable/preview_window</item>
-    </style>
 </resources>

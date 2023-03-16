@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -22,7 +23,7 @@
         <item name="android:navigationBarColor">@color/nav_bar_scrim</item>
 
         <!-- Text appearances -->
-        <item name="textAppearanceListItem">@style/TextAppearance.Quizizz.ListPrimary</item>
+        <item name="textAppearanceListItem">@style/TextAppearance.Quizado.ListPrimary</item>
 
         <!-- Widget styles -->
         <item name="toolbarStyle">@style/Widget.Quizado.Toolbar</item>
@@ -33,25 +34,21 @@
         <item name="materialAlertDialogTheme">@style/AlertDialog.Theme</item>
 
         <!-- Custom theme attrs -->
-        <item name="quizizzNavigationBarDividerColor">?attr/colorControlLight</item>
+        <item name="quizadoNavigationBarDividerColor">?attr/colorControlLight</item>
     </style>
 
-    <style name="AppTheme.PopupTheme" parent="ThemeOverlay.Quizizz.Light" />
-
-    <style name="ThemeOverlay.Quizizz.Light" parent="ThemeOverlay.MaterialComponents.Light">
+    <style name="ThemeOverlay.Quizado.Light" parent="ThemeOverlay.MaterialComponents.Light">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
     </style>
 
-    <style name="AlertDialog.ShapeAppearance" parent="ShapeAppearance.MaterialComponents.MediumComponent">
-        <item name="cornerSize">@dimen/dialog_corner_radius</item>
-    </style>
-
-    <style name="AlertDialog.Style" parent="MaterialAlertDialog.MaterialComponents">
-        <item name="shapeAppearance">@style/AlertDialog.ShapeAppearance</item>
-    </style>
-
     <style name="AppTheme" parent="Base.AppTheme" />
+
+    <style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/preview_window</item>
+    </style>
+
+    <style name="AppTheme.PopupTheme" parent="ThemeOverlay.Quizado.Light" />
 
     <style name="AlertDialog.Theme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="alertDialogStyle">@style/AlertDialog.Style</item>
@@ -62,16 +59,11 @@
         <item name="materialAlertDialogBodyTextStyle">@style/AlertDialog.BodyText</item>
     </style>
 
-    <style name="AlertDialog.ButtonBar" parent="@style/Widget.AppCompat.ButtonBar.AlertDialog">
-        <item name="android:paddingBottom">@dimen/margin_small</item>
-        <item name="android:paddingTop">@dimen/margin_small</item>
+    <style name="AlertDialog.Style" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="shapeAppearance">@style/AlertDialog.ShapeAppearance</item>
     </style>
 
-    <style name="AlertDialog.BodyText" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textAlignment">viewStart</item>
-        <item name="android:lineSpacingExtra">4sp</item>
+    <style name="AlertDialog.ShapeAppearance" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">@dimen/dialog_corner_radius</item>
     </style>
-
-
 </resources>

@@ -6,4 +6,13 @@
     <string name="welcome_to_quizado">Welcome to Quizizz, \n Please select the Sign In button to get started.</string>
     <string name="logged_in">Logged in…</string>
     <string name="quiz">Quiz</string>
+    <string name="please_click_back_again">Please click BACK again to exit</string>
+    <string name="home">Home</string>
+    <string name="leaders">Leaders</string>
+    <string name="profile">Profile</string>
+    <string name="send_question">Send Question</string>
+    <string name="Settings">Settings</string>
+    <string name="dialog_sign_out_content">All saved data remain synced to your account.</string>
+    <string name="acknowledgements">Acknowledgements</string>
+    <string name="sign_out">Sign out</string>
 </resources>
