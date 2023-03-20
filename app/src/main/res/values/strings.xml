@@ -15,4 +15,13 @@
     <string name="dialog_sign_out_content">All saved data remain synced to your account.</string>
     <string name="acknowledgements">Acknowledgements</string>
     <string name="sign_out">Sign out</string>
+    <string name="QuizTitle">Quiz Title</string>
+    <string name="featured_quiz">Featured Quiz</string>
+    <string name="quiz_description">Quiz Description</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="category">Category</string>
+    <string name="congratulations">CONGRATS!</string>
+    <string name="play_quiz">Play Quiz</string>
+    <string name="for_you">For You</string>
+    <string name="trending_today">Trending Today</string>
 </resources>
