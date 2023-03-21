@@ -24,4 +24,8 @@
     <string name="play_quiz">Play Quiz</string>
     <string name="for_you">For You</string>
     <string name="trending_today">Trending Today</string>
+    <string name="question">Question</string>
+    <string name="last_score">Your Last Score</string>
+    <string name="not_available">NA</string>
+    <string name="start_quiz">Start Quiz</string>
 </resources>
