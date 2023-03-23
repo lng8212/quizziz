@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import com.longkd.quizizz.R
 
 
 /**
@@ -50,9 +51,9 @@ open class MainNavigationFragment : Fragment(),
         // If we have a toolbar and we are attached to a proper navigation host, set up the toolbar
         // navigation icon.
         val host = navigationHost ?: return
-//        val mainToolbar: Toolbar = view.findViewById(R.id.toolbar) ?: return
-//        mainToolbar.apply {
-//            host.registerToolbarWithNavigation(this)
-//        }
+        val mainToolbar: Toolbar = view.findViewById(R.id.toolbar) ?: return
+        mainToolbar.apply {
+            host.registerToolbarWithNavigation(this)
+        }
     }
 }

@@ -104,6 +104,7 @@ class HomeViewModel @Inject constructor(
         val quizListModelList: MutableList<QuizListModel> = mutableListOf()
         for (doc in value!!) {
             val quizItem = doc.toObject<QuizListModel>()
+            quizItem.quiz_id = doc.id
             quizListModelList.add(quizItem)
         }
 

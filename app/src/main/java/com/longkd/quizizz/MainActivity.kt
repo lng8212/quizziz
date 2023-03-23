@@ -32,7 +32,8 @@ import com.longkd.quizizz.widget.NavigationBarContentFrameLayout
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), NavigationHost {
+class MainActivity : AppCompatActivity(),
+    NavigationHost {
 
     companion object {
         private const val DIALOG_SIGN_OUT = "dialog_sign_out"
@@ -60,8 +61,14 @@ class MainActivity : AppCompatActivity(), NavigationHost {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         updateForTheme(mainActivityViewModel.currentTheme)
+
         setContentView(R.layout.activity_main)
+        drawer = findViewById(R.id.main_drawer_layout)
+        navigationView = findViewById(R.id.navigation_view)
+        btmNavigationView = findViewById(R.id.list_btm_nav_view)
+
         val drawerContainer: NavigationBarContentFrameLayout = findViewById(R.id.drawer_container)
         // Let's consume any
         drawerContainer.setOnApplyWindowInsetsListener { v, insets ->
@@ -90,9 +97,6 @@ class MainActivity : AppCompatActivity(), NavigationHost {
         statusScrim = findViewById(R.id.status_bar_scrim)
         statusScrim.setOnApplyWindowInsetsListener(HeightTopWindowInsetsListener)
 
-        drawer = findViewById(R.id.main_drawer_layout)
-        navigationView = findViewById(R.id.navigation_view)
-        btmNavigationView = findViewById(R.id.list_btm_nav_view)
 
         //Navigation Header
         navHeaderBinding = NavHeaderBinding.inflate(layoutInflater).apply {
@@ -113,12 +117,18 @@ class MainActivity : AppCompatActivity(), NavigationHost {
 
             addHeaderView(navHeaderBinding.root)
         }
+        // Nav host and controller
         setupNavigation()
+
         mainActivityViewModel.theme.observe(this, Observer(::updateForTheme))
 
         mainActivityViewModel.navigateToSignOutDialogAction.observe(this, EventObserver {
             openSignOutDialog()
         })
+    }
+
+    private fun openSignOutDialog() {
+        SignOutDialogFragment().show(supportFragmentManager, DIALOG_SIGN_OUT)
     }
 
     private fun setupNavigation() {
@@ -148,15 +158,10 @@ class MainActivity : AppCompatActivity(), NavigationHost {
         }
     }
 
-    private fun openSignOutDialog() {
-        SignOutDialogFragment().show(supportFragmentManager, DIALOG_SIGN_OUT)
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 
-    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if (drawer.isDrawerOpen(navigationView) && drawer.shouldCloseDrawerFromBackPress()) {
             closeDrawer()
@@ -165,10 +170,6 @@ class MainActivity : AppCompatActivity(), NavigationHost {
         } else {
             super.onBackPressed()
         }
-    }
-
-    private fun closeDrawer() {
-        drawer.closeDrawer(GravityCompat.START)
     }
 
     private fun closeApp(btmNavView: BottomNavigationView) {
@@ -191,11 +192,14 @@ class MainActivity : AppCompatActivity(), NavigationHost {
         }
     }
 
+    private fun closeDrawer() {
+        drawer.closeDrawer(GravityCompat.START)
+    }
+
     override fun registerToolbarWithNavigation(toolbar: Toolbar) {
         val appBarConfiguration = AppBarConfiguration(TOP_LEVEL_DESTINATIONS, drawer)
         toolbar.setupWithNavController(navController, appBarConfiguration)
     }
-
 
     override fun onUserInteraction() {
         super.onUserInteraction()
@@ -207,5 +211,4 @@ class MainActivity : AppCompatActivity(), NavigationHost {
             ?.childFragmentManager
             ?.primaryNavigationFragment as? MainNavigationFragment
     }
-
 }

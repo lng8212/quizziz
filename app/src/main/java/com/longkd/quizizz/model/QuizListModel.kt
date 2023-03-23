@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class QuizListModel(
-    val quiz_id: String,
+    var quiz_id: String,
     val name: String,
     val desc: String,
     val image: String,
