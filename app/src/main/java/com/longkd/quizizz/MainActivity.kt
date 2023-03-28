@@ -13,6 +13,7 @@ import androidx.core.view.GravityCompat
 import androidx.core.view.updatePadding
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -30,6 +31,8 @@ import com.longkd.quizizz.ui.SignOutDialogFragment
 import com.longkd.quizizz.utils.*
 import com.longkd.quizizz.widget.NavigationBarContentFrameLayout
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(),
@@ -61,13 +64,12 @@ class MainActivity : AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        updateForTheme(mainActivityViewModel.currentTheme)
-
         setContentView(R.layout.activity_main)
         drawer = findViewById(R.id.main_drawer_layout)
         navigationView = findViewById(R.id.navigation_view)
         btmNavigationView = findViewById(R.id.list_btm_nav_view)
+
+        updateForTheme(mainActivityViewModel.currentTheme)
 
         val drawerContainer: NavigationBarContentFrameLayout = findViewById(R.id.drawer_container)
         // Let's consume any
@@ -197,8 +199,12 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun registerToolbarWithNavigation(toolbar: Toolbar) {
-        val appBarConfiguration = AppBarConfiguration(TOP_LEVEL_DESTINATIONS, drawer)
-        toolbar.setupWithNavController(navController, appBarConfiguration)
+        lifecycleScope.launch {
+            delay(200)
+            val appBarConfiguration = AppBarConfiguration(TOP_LEVEL_DESTINATIONS, drawer)
+            toolbar.setupWithNavController(navController, appBarConfiguration)
+        }
+
     }
 
     override fun onUserInteraction() {
